@@ -1,0 +1,12 @@
+.app-home__avatar {
+  margin-top: 30px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.app-home__avatar-img {
+  width: 100%;
+  height: 100%;
+}

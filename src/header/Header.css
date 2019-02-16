@@ -1,22 +1,13 @@
-.app-toolbar {
+.app-header {
+  text-align: center;
   display: flex;
-  align-items: center;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
 }
 
-.app-toolbar__menu {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.app-toolbar__socials {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.app-toolbar__socials > *:hover {
+.app-header__socials > *:hover {
   transform: rotate(360deg);
   transition: all 0.5s ease-in-out 0s;
 }
