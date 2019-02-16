@@ -14,9 +14,10 @@ function styles(theme) {
   return {
     buttonIcon: {
       marginRight: theme.spacing.unit,
+      color: theme.palette.secondary.dark,
     },
     list: {
-      width: 150,
+      width: 170,
     },
   };
 }
