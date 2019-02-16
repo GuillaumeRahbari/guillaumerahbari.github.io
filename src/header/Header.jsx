@@ -2,12 +2,13 @@ import React from 'react';
 import { withTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faFacebookF,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { Menu } from './menu';
 import './Header.css';
 
 export default withTheme()(function Header(props) {
@@ -23,9 +24,7 @@ export default withTheme()(function Header(props) {
   return (
     <section className={'app-header'} style={styles.section}>
       <div className={'app-header__menu'}>
-        <IconButton color={'inherit'} aria-label="Menu">
-          <FontAwesomeIcon icon={faBars} size={'lg'} />
-        </IconButton>
+        <Menu />
       </div>
       <div className={'app-header__socials'}>
         <IconButton
