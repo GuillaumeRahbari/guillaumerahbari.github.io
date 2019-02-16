@@ -1,5 +1,6 @@
 import React from 'react';
-import { withTheme } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -11,18 +12,19 @@ import {
 import { Menu } from './menu';
 import './Header.css';
 
-export default withTheme()(function Header(props) {
-  const { theme } = props;
+function styles(theme) {
   const secondaryColor = theme.palette.secondary;
-
-  const styles = {
+  return {
     section: {
       color: secondaryColor.main,
     },
   };
+}
 
+export default withStyles(styles)(function Header(props) {
+  const { classes } = props;
   return (
-    <section className={'app-header'} style={styles.section}>
+    <section className={classnames('app-header', classes.section)}>
       <div className={'app-header__menu'}>
         <Menu />
       </div>

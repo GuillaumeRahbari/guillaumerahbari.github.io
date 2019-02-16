@@ -1,19 +1,22 @@
 import React from 'react';
-import { withTheme } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 import MyProfile from './me.jpg';
 import './Home.css';
 
-export default withTheme()(function Home(props) {
-  const { theme } = props;
+function styles(theme) {
   const primaryColor = theme.palette.primary;
-
-  const styles = {
+  return {
     section: {
       color: primaryColor.main,
     },
   };
+}
+
+export default withStyles(styles)(function Home(props) {
+  const { classes } = props;
   return (
-    <section className={'section-container'} style={styles.section}>
+    <section className={classnames('section-container', classes.section)}>
       <h1 className={'title'}>Full-stack Javascript Lead tech</h1>
       <h2>
         I design and code beautifully simple things, and I love what I do.

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Header } from './header';
-import { Home } from './home';
-import { About } from './about';
+import { PAGES } from './models/pages';
 import './App.css';
 
 class App extends Component {
@@ -11,8 +10,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
+          {PAGES.map(({ index, route, component }) => (
+            <Route key={index} exact path={route} component={component} />
+          ))}
         </div>
       </Router>
     );
