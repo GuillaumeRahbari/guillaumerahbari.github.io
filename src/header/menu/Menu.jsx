@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -14,13 +14,22 @@ function styles(theme) {
   return {
     buttonIcon: {
       marginRight: theme.spacing.unit,
-      color: theme.palette.secondary.dark,
+      color: theme.palette.secondary.light,
     },
     list: {
       width: 170,
     },
+    link: {
+      fontWeight: 'bold',
+      color: theme.palette.secondary.main,
+    },
   };
 }
+
+const MyLink = withStyles(styles)(function Link(props) {
+  const { classes, ...rest } = props;
+  return <NavLink exact activeClassName={classes.link} {...rest} />;
+});
 
 export default withStyles(styles)(function Menu(props) {
   const { classes } = props;
@@ -39,7 +48,7 @@ export default withStyles(styles)(function Menu(props) {
         <List className={classes.list}>
           {PAGES.map(({ index, route, icon, text }) => (
             <ListItem key={index}>
-              <Button component={Link} to={route} color="secondary">
+              <Button component={MyLink} to={route}>
                 <FontAwesomeIcon
                   icon={icon}
                   size={'lg'}
