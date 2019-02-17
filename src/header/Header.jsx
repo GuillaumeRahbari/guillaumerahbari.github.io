@@ -3,20 +3,41 @@ import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faFacebookF,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
 import { Menu } from './menu';
-import './Header.css';
+import { SOCIALS } from '../models/socials';
 
 function styles(theme) {
   const secondaryColor = theme.palette.secondary;
   return {
     section: {
       color: secondaryColor.main,
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '60px',
+    },
+    icon: {
+      '&:hover': {
+        transform: 'rotate(360deg)',
+        transition: 'all 0.5s ease-in-out 0s',
+      },
+    },
+    facebook: {
+      '&:hover': {
+        color: '#4267b2',
+      },
+    },
+    twitter: {
+      '&:hover': {
+        color: '#38A1F3',
+      },
+    },
+    github: {
+      '&:hover': {
+        color: '#24292e',
+      },
     },
   };
 }
@@ -24,46 +45,24 @@ function styles(theme) {
 export default withStyles(styles)(function Header(props) {
   const { classes } = props;
   return (
-    <section className={classnames('app-header', classes.section)}>
-      <div className={'app-header__menu'}>
+    <section className={classes.section}>
+      <div>
         <Menu />
       </div>
-      <div className={'app-header__socials'}>
-        <IconButton
-          color={'inherit'}
-          component={'a'}
-          href={''}
-          target={'_blank'}
-          aria-label="Go to the twitter page of Guillaume Rahbari (new window)"
-        >
-          <FontAwesomeIcon icon={faTwitter} size={'lg'} />
-        </IconButton>
-        <IconButton
-          color={'inherit'}
-          component={'a'}
-          href={''}
-          target={'_blank'}
-          aria-label="Go to the facebook page of Guillaume Rahbari (new window)"
-        >
-          <FontAwesomeIcon icon={faFacebookF} size={'lg'} />
-        </IconButton>
-        <IconButton
-          color={'inherit'}
-          component={'a'}
-          href={''}
-          target={'_blank'}
-          aria-label="Go to the github page of Guillaume Rahbari (new window)"
-        >
-          <FontAwesomeIcon icon={faGithub} size={'lg'} />
-        </IconButton>
-        <IconButton
-          color={'inherit'}
-          component={'a'}
-          href={'mailto:guillaume.rahbari@gmail.com'}
-          aria-label="Send an email to Guillaume Rahbari"
-        >
-          <FontAwesomeIcon icon={faEnvelope} size={'lg'} />
-        </IconButton>
+      <div>
+        {SOCIALS.map(({ index, name, icon, href, text }) => (
+          <IconButton
+            key={index}
+            color={'inherit'}
+            component={'a'}
+            href={href}
+            target={'_blank'}
+            aria-label={text}
+            className={classnames(classes.icon, classes[name])}
+          >
+            <FontAwesomeIcon icon={icon} size={'lg'} />
+          </IconButton>
+        ))}
       </div>
     </section>
   );
