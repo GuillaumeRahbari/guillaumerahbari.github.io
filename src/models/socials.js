@@ -12,7 +12,6 @@ export const SOCIALS = [
     href: '',
     icon: faTwitter,
     text: 'Go to the twitter page of Guillaume Rahbari (new window)',
-    color: '#38A1F3',
   },
   {
     index: '2',
@@ -20,7 +19,6 @@ export const SOCIALS = [
     href: '',
     icon: faFacebookF,
     text: 'Go to the facebook page of Guillaume Rahbari (new window)',
-    color: '#4267b2',
   },
   {
     index: '3',
@@ -28,7 +26,6 @@ export const SOCIALS = [
     href: '',
     icon: faGithub,
     text: 'Go to the github page of Guillaume Rahbari (new window)',
-    color: '#24292e',
   },
   {
     index: '4',
